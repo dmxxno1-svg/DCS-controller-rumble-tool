@@ -1,0 +1,49 @@
+{
+    "_comment": "全局配置说明:可复制整个AIRCRAFTS区块来添加新飞机",
+    "ENABLE_CORRECTIONS": true,
+    
+    "DEFAULT": {
+        "g_threshold": 4.0,
+        "vibration_settings": {
+            "G": true,
+            "AMMO": true,
+            "SpeedBrake": true,
+            "OnGround": true,
+            "total_bomb": true,
+            "RPM": true,
+            "COUNTER":true
+        },
+        "corrections": {
+            "active": false,
+            "overrides": {}
+        }
+    },
+
+    "AIRCRAFTS": {
+        "F-16C_50": {
+            "_comment": "样例配置:继承DEFAULT并覆盖部分参数",
+            "g_threshold": 8.0,
+            "vibration_settings": {
+                "AMMO": true
+            },
+            "corrections": {
+                "active": false
+            }
+        },
+        
+        "Ka-50_3": {
+            "_comment": "corrections中为强制覆写的数据,强制Ka-50_3的减速板输出为0,防止错误数据干扰",
+            "corrections": {
+                "active": true,
+                "overrides": {"SpeedBrake": 0}
+            }
+        },
+
+        "Ka-50": {
+            "corrections": {
+                "active": true,
+                "overrides": {"SpeedBrake": 0}
+            }
+        }
+    }
+}
